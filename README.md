@@ -16,7 +16,7 @@ java "-Dfile.encoding=UTF-8" -cp out Main
 java -cp out Bench
 ```
 
-The quoted UTF-8 option preserves the check marks in the HTML on Windows with
+The quoted UTF-8 option preserves UTF-8 text in the HTML on Windows with
 Java 17. The supplied `Render.java` is unchanged. Without JVM options,
 `java -cp out Main` computes the same nine answers.
 
@@ -57,7 +57,7 @@ Cheapest testing: 146
 Longest chain: 28
 ```
 
-The personal run took approximately **418 ms** wall-clock time, including JVM
+The initial algorithm-validation run took approximately **418 ms** wall-clock time, including JVM
 startup and HTML generation, on the validation machine. All nine values agree
 with the independent calculations in the lab console.
 
@@ -125,8 +125,11 @@ than presented as unaided student work.
 The source material was the supplied course starter archive, including
 `docs/Assignment4.pdf`, `START_HERE.md`, `docs/Hints.md`, and
 `docs/Assignment4_defense_prep.pdf`. No external website or book code was copied.
-The provided runner, input parser, renderer, HTML template, generator, benchmark,
-examples, and original tools have been preserved.
+The provided runner, input parser, renderer, generator, benchmark, examples,
+and original tools have been preserved. At the user's request, `src/lab.html`
+was simplified into a black-and-white report with the nine results, separate
+correctness checks, short mission explanations, marker details and the selected
+testing plan. The generated HTML and screenshot use this simplified template.
 
 The student must review and understand the implementation and adapt the written
 explanations into their own words before submission. The assignment's AI rules
@@ -186,7 +189,10 @@ than `k`. These boundary conventions do not change the assignment's valid data.
   independent exhaustive/naive oracles, including real hash collisions,
   overlapping hits, zero-cost tree covers, reconstruction, and costs above the
   signed 32-bit range.
-- Personal lab console in Chrome: 9 green checks, no JavaScript page errors.
+- Simplified personal report in Chrome: 9 textual PASS checks, matching marker
+  positions and a valid minimum-cost plan; no JavaScript page errors.
+- Desktop and 390/320 px responsive browser layouts inspected: black and white,
+  with no horizontal page overflow.
 - Full-page `output/outbreak.png` captured and visually inspected.
 
 ## Before submission
