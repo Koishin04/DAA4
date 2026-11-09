@@ -59,13 +59,13 @@ code { overflow-wrap: anywhere; }
 </details>
 <noscript>Enable JavaScript to view the results and animation.</noscript>
 <script>
-const D = /*DATA*/;
+//const D = /*DATA*/;
 const $ = id => document.getElementById(id);
 // Independent checks; these do not change the values printed by Java.
 function compareStrains(a, b) {
   let edits = Array.from({length: b.length + 1}, (_, i) => i);
   let common = new Array(b.length + 1).fill(0);
-  for (let i = 1; i <= a.length; i++) {
+  for (let i = 1; i <= a.length; i++) {  
     const nextEdits = [i], nextCommon = [0];
     for (let j = 1; j <= b.length; j++) {
       const equal = a[i - 1] === b[j - 1];
