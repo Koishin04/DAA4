@@ -127,9 +127,11 @@ The source material was the supplied course starter archive, including
 `docs/Assignment4_defense_prep.pdf`. No external website or book code was copied.
 The provided runner, input parser, renderer, generator, benchmark, examples,
 and original tools have been preserved. At the user's request, `src/lab.html`
-was simplified into a black-and-white report with the nine results, separate
-correctness checks, short mission explanations, marker details and the selected
-testing plan. The generated HTML and screenshot use this simplified template.
+was simplified into a short black-and-white page using basic HTML, CSS and
+JavaScript. It shows nine results and a real KMP animation on a short excerpt
+from the personal genome, with Play/Pause, Step and Reset controls. Checks,
+marker details and the testing plan remain available under Details. The generated
+HTML and screenshot use this compact template; no external libraries are needed.
 
 The student must review and understand the implementation and adapt the written
 explanations into their own words before submission. The assignment's AI rules
@@ -193,7 +195,9 @@ than `k`. These boundary conventions do not change the assignment's valid data.
   positions and a valid minimum-cost plan; no JavaScript page errors.
 - Desktop and 390/320 px responsive browser layouts inspected: black and white,
   with no horizontal page overflow.
-- Full-page `output/outbreak.png` captured and visually inspected.
+- KMP animation: Play/Pause, Step, Reset, completion and matched positions
+  checked in the browser. Nothing starts automatically.
+- Full-page `output/outbreak.png` captured during a KMP step and visually inspected.
 
 ## Before submission
 
