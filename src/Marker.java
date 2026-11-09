@@ -11,8 +11,16 @@ public class Marker {
      * Example: p = "ACGAC" gives [0, 0, 0, 1, 2]. The last number is the "Border length" line.
      */
     public static int[] prefixFunction(String p) {
-        // TODO Mission 3a
-        return new int[p.length()];
+        int[] pi = new int[p.length()];
+        for (int i = 1; i < p.length(); i++) {
+            int matched = pi[i - 1];
+            while (matched > 0 && p.charAt(i) != p.charAt(matched)) {
+                matched = pi[matched - 1];
+            }
+            if (p.charAt(i) == p.charAt(matched)) matched++;
+            pi[i] = matched;
+        }
+        return pi;
     }
 
     /**
@@ -20,10 +28,31 @@ public class Marker {
      * Overlapping occurrences count: "ACG" occurs in "ACGACG" at 0 and 3, and "AA" in "AAA" at 0 and 1.
      * Use the prefix function: the text pointer never goes back. The number of positions is "Marker hits",
      * the first one is "First hit" (-1 when there is none).
+     * An empty pattern matches at every boundary, including the end of the text.
      */
     public static int[] findAll(String text, String p) {
-        // TODO Mission 3b
-        return new int[0];
+        if (p.isEmpty()) {
+            int[] boundaries = new int[text.length() + 1];
+            for (int i = 0; i < boundaries.length; i++) boundaries[i] = i;
+            return boundaries;
+        }
+        int[] pi = prefixFunction(p);
+        List<Integer> hits = new ArrayList<>();
+        int matched = 0;
+        for (int i = 0; i < text.length(); i++) {
+            while (matched > 0 && text.charAt(i) != p.charAt(matched)) {
+                matched = pi[matched - 1];
+            }
+            if (text.charAt(i) == p.charAt(matched)) matched++;
+            if (matched == p.length()) {
+                hits.add(i - p.length() + 1);
+                // Keep the longest border so overlapping occurrences are found.
+                matched = pi[matched - 1];
+            }
+        }
+        int[] result = new int[hits.size()];
+        for (int i = 0; i < result.length; i++) result[i] = hits.get(i);
+        return result;
     }
 
     /**
